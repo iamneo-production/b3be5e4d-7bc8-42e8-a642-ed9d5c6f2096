@@ -9,6 +9,8 @@ export { ProductCard } from "./Components/Card/ProductCard"
 export { Footer } from "./Components/Footer/Footer"
 
 export { Signup } from "./Pages/AutheticationPages/Signup"
+export { Login } from "./Pages/AutheticationPages/Login"
+
 
 
 
