@@ -13,11 +13,11 @@ import axios from "axios"
 
 function Login()
 {
-    // const { setUserLoggedIn }       = useUserLogin()
-    // const { showToast }             = useToast()
-    // const { dispatchUserWishlist }  = useWishlist()
-    // const { dispatchUserCart }      = useCart()
-    // const { dispatchUserOrders }    = useOrders()
+   // const { setUserLoggedIn }       = useUserLogin()
+    //const { showToast }             = useToast()
+    //const { dispatchUserWishlist }  = useWishlist()
+   // const { dispatchUserCart }      = useCart()
+    //const { dispatchUserOrders }    = useOrders()
 
     const [userEmail    , setUserEmail]    = useState('')
     const [userPassword , setUserPassword] = useState('')
@@ -90,7 +90,39 @@ function Login()
     //         showToast("error","","Error logging in user. Please try again")
     //     })
     // }
+    /*useEffect(()=>{
+        const token=localStorage.getItem('token')
 
+        if(token)
+        {
+            const user = jwt_decode(token)
+            if(!user)
+            {
+                localStorage.removeItem('token')
+            }
+            else
+            {
+                (async function getUpdatedWishlistAndCart()
+                {
+                    let updatedUserInfo = await axios.get(
+                    "https://bookztron.herokuapp.com/api/user",
+                    {
+                        headers:
+                        {
+                        'x-access-token': localStorage.getItem('token'),
+                        }
+                    })
+
+                    if(updatedUserInfo.data.status==="ok")
+                    {
+                        dispatchUserWishlist({type: "UPDATE_USER_WISHLIST",payload: updatedUserInfo.data.user.wishlist})
+                        dispatchUserCart({type: "UPDATE_USER_CART",payload: updatedUserInfo.data.user.cart})
+                        dispatchUserOrders({type: "UPDATE_USER_ORDERS",payload: updatedUserInfo.data.user.orders})
+                    }
+                })()
+            }
+        }   
+    },[])*/
     return (
         <div className="user-auth-content-container">
             <form 
