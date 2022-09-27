@@ -1,69 +1,69 @@
 import React, { useEffect } from 'react'
 import './Navbar.css'
 import { Link, useLocation } from "react-router-dom"
-import jwt_decode from "jwt-decode";
-import { useUserLogin, useToast, useWishlist, useCart, useOrders, useSearchBar } from "../../index"
-import { BsShopWindow, BsFillBagFill } from "react-icons/bs"
+// import jwt_decode from "jwt-decode";
+// import { useUserLogin, useToast, useWishlist, useCart, useOrders, useSearchBar } from "../../index"
+// import { BsShopWindow, BsFillBagFill } from "react-icons/bs"
 
 function Navbar() {
 
-    const { userWishlist, dispatchUserWishlist } = useWishlist()
-    const { userCart, dispatchUserCart } = useCart()
-    const { userOrders, dispatchUserOrders } = useOrders()
-    const { setUserLoggedIn } = useUserLogin(false)
-    const { showToast } = useToast()
+    // const { userWishlist, dispatchUserWishlist } = useWishlist()
+    // const { userCart, dispatchUserCart } = useCart()
+    // const { userOrders, dispatchUserOrders } = useOrders()
+    // const { setUserLoggedIn } = useUserLogin(false)
+    // const { showToast } = useToast()
     const location = useLocation()
-    const { searchBarTerm, setSearchBarTerm } = useSearchBar()
+    // const { searchBarTerm, setSearchBarTerm } = useSearchBar()
 
-    useEffect(()=>{
-        const token=localStorage.getItem('token')
-        if(token)
-        {
-            const user = jwt_decode(token)
+    // useEffect(()=>{
+    //     const token=localStorage.getItem('token')
+    //     if(token)
+    //     {
+    //         const user = jwt_decode(token)
             
-            if(!user)
-            {
-                localStorage.removeItem('token')
-                setUserLoggedIn(false)
-            }
-            else
-            {
-                setUserLoggedIn(true)
-            }
-        }
-    },[])
+    //         if(!user)
+    //         {
+    //             localStorage.removeItem('token')
+    //             // setUserLoggedIn(false)
+    //         }
+    //         else
+    //         {
+    //             // setUserLoggedIn(true)
+    //         }
+    //     }
+    // },[])
 
-    useEffect(()=>{
-        function handleInvalidToken() {
-            if(localStorage.getItem('token')!==null)
-            {
-                setUserLoggedIn(true)
-            }
-            else
-            {
-                setUserLoggedIn(false)
-                dispatchUserWishlist({type:"UPDATE_USER_WISHLIST",payload:[]})
-                dispatchUserCart({type:"UPDATE_USER_CART",payload:[]})
-                dispatchUserOrders({type:"UPDATE_USER_ORDERS",payload:[]})
-            }
-        }
-        window.addEventListener("storage",handleInvalidToken)
+    // useEffect(()=>{
+    //     function handleInvalidToken() {
+    //         if(localStorage.getItem('token')!==null)
+    //         {
+    //             // setUserLoggedIn(true)
+    //         }
+    //         else
+    //         {
+    //             // setUserLoggedIn(false)
+    //             // dispatchUserWishlist({type:"UPDATE_USER_WISHLIST",payload:[]})
+    //             // dispatchUserCart({type:"UPDATE_USER_CART",payload:[]})
+    //             // dispatchUserOrders({type:"UPDATE_USER_ORDERS",payload:[]})
+    //         }
+    //     }
+    //     window.addEventListener("storage",handleInvalidToken)
 
-        return function cleanup() {
-            window.removeEventListener('storage', handleInvalidToken)
-        }
-    },[userWishlist,userCart])
+    //     return function cleanup() {
+    //         window.removeEventListener('storage', handleInvalidToken)
+    //     }
+    // },[userWishlist,userCart])
 
-    function logoutUser()
-    {
-        localStorage.removeItem('token')
-        dispatchUserWishlist({type:"UPDATE_USER_WISHLIST",payload:[]})
-        dispatchUserCart({type:"UPDATE_USER_CART",payload:[]})
-        dispatchUserOrders({type:"UPDATE_USER_ORDERS",payload:[]})
-        setUserLoggedIn(false)
-        localStorage.clear()
-        showToast("success","","Logged out successfully")
-    }
+    // function logoutUser()
+    // {
+    //     localStorage.removeItem('token')
+    //     dispatchUserWishlist({type:"UPDATE_USER_WISHLIST",payload:[]})
+    //     dispatchUserCart({type:"UPDATE_USER_CART",payload:[]})
+    //     dispatchUserOrders({type:"UPDATE_USER_ORDERS",payload:[]})
+    //     // setUserLoggedIn(false)
+    //     localStorage.clear()
+    //     showToast("success","","Logged out successfully")
+    // }
     
     return (
         <div className="top-bar">
@@ -79,8 +79,8 @@ function Navbar() {
                             <input 
                                 className="search-bar-input" 
                                 placeholder="Search"
-                                value={searchBarTerm}
-                                onChange={event=>setSearchBarTerm(event.target.value)}
+                                // value={searchBarTerm}
+                                // onChange={event=>setSearchBarTerm(event.target.value)}
                             />
                         </div>
                     )
@@ -90,7 +90,9 @@ function Navbar() {
                 {
                     localStorage.getItem('token')!==null
                     ? (
-                        <button onClick={logoutUser} className="navbar-login-btn solid-primary-btn">Logout</button>
+                        <button 
+                        // onClick={logoutUser}
+                         className="navbar-login-btn solid-primary-btn">Logout</button>
                     )
                     : (
                         <Link to="/login">
@@ -101,7 +103,7 @@ function Navbar() {
                 <Link to="/shop">
                     <button className="icon-btn">
                         <div>
-                            <BsShopWindow/>
+                            {/* <BsShopWindow/> */}
                         </div>
                     </button>
                 </Link>
@@ -110,8 +112,8 @@ function Navbar() {
                         <div className="icon-count-badge">
                             <i className="fa fa-heart-o fa-x" aria-hidden="true" ></i>
                             {
-                                userWishlist.length!==0
-                                && (<span className="count-badge-x">{userWishlist.length}</span>)
+                                // userWishlist.length!==0
+                                // && (<span className="count-badge-x">{userWishlist.length}</span>)
                             }
                         </div>
                     </button>
@@ -121,8 +123,8 @@ function Navbar() {
                         <div className="icon-count-badge">
                             <i className="fa fa-shopping-cart fa-x" aria-hidden="true" ></i>
                             {
-                                userCart.length!==0
-                                && (<span className="count-badge-x">{userCart.length}</span>)
+                                // userCart.length!==0
+                                // && (<span className="count-badge-x">{userCart.length}</span>)
                             }
                         </div>
                     </button>
@@ -130,14 +132,14 @@ function Navbar() {
                 <Link to="/orders">
                     <button className="icon-btn">
                         <div className="icon-count-badge">
-                        <BsFillBagFill 
+                        {/* <BsFillBagFill 
                             style={{
                                 marginBottom:"4px"
                             }}
-                        />
+                        /> */}
                         {
-                            userOrders.length!==0
-                            && (<span className="count-badge-x">{userOrders.length}</span>)
+                            // userOrders.length!==0
+                            // && (<span className="count-badge-x">{userOrders.length}</span>)
                         }
                         </div>
                     </button>
