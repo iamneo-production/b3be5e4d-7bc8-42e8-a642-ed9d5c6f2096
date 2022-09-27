@@ -12,14 +12,13 @@ function Navbar() {
     // const { userOrders, dispatchUserOrders } = useOrders()
     // const { setUserLoggedIn } = useUserLogin(false)
     // const { showToast } = useToast()
-    const location = useLocation()
-    // const { searchBarTerm, setSearchBarTerm } = useSearchBar()
 
     // useEffect(()=>{
     //     const token=localStorage.getItem('token')
     //     if(token)
     //     {
     //         const user = jwt_decode(token)
+
             
     //         if(!user)
     //         {
@@ -64,7 +63,6 @@ function Navbar() {
     //     localStorage.clear()
     //     showToast("success","","Logged out successfully")
     // }
-    
     return (
         <div className="top-bar">
             <div className="left-topbar-container">
@@ -141,6 +139,7 @@ function Navbar() {
                             // userOrders.length!==0
                             // && (<span className="count-badge-x">{userOrders.length}</span>)
                         }
+
                         </div>
                     </button>
                 </Link>
@@ -148,5 +147,6 @@ function Navbar() {
         </div>
     )
 }
+
 
 export {Navbar};
