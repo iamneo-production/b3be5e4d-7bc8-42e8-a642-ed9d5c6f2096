@@ -3,19 +3,19 @@ import { useEffect, useLayoutEffect } from 'react';
 // import axios from "axios"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import {
-  Navbar,
+  Navbar, 
   Signup,
-  Login,
 } from "./index"
+import { Login } from './Pages/AutheticationPages/Login';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar />
+      <Navbar/>
         <Routes>
-          <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </div>
     </Router>

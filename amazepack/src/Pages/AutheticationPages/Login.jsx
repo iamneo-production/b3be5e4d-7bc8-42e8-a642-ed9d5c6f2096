@@ -1,101 +1,104 @@
 import React, { useState, useEffect } from "react"
-// import jwt_decode from "jwt-decode"
+
+//import jwt_decode from "jwt-decode"
 import "./UserAuth.css"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
-// import { 
-//     useToast, 
-//     useUserLogin, 
-//     useWishlist,
-//     useCart,
-//     useOrders
-// } from "../../index"
+/*import { 
+    useToast, 
+    useUserLogin, 
+    useWishlist,
+    useCart,
+    useOrders
+} from "../../index"*/
 
 function Login()
 {
-    // const { setUserLoggedIn }       = useUserLogin()
-    // const { showToast }             = useToast()
-    // const { dispatchUserWishlist }  = useWishlist()
-    // const { dispatchUserCart }      = useCart()
-    // const { dispatchUserOrders }    = useOrders()
+   // const { setUserLoggedIn }       = useUserLogin()
+    //const { showToast }             = useToast()
+    //const { dispatchUserWishlist }  = useWishlist()
+   // const { dispatchUserCart }      = useCart()
+    //const { dispatchUserOrders }    = useOrders()
 
     const [userEmail    , setUserEmail]    = useState('')
     const [userPassword , setUserPassword] = useState('')
 
-    // useEffect(()=>{
-    //     const token=localStorage.getItem('token')
 
-    //     if(token)
-    //     {
-    //         const user = jwt_decode(token)
-    //         if(!user)
-    //         {
-    //             localStorage.removeItem('token')
-    //         }
-    //         else
-    //         {
-    //             (async function getUpdatedWishlistAndCart()
-    //             {
-    //                 let updatedUserInfo = await axios.get(
-    //                 "https://bookztron.herokuapp.com/api/user",
-    //                 {
-    //                     headers:
-    //                     {
-    //                     'x-access-token': localStorage.getItem('token'),
-    //                     }
-    //                 })
+    /*useEffect(()=>{
+        const token=localStorage.getItem('token')
 
-    //                 if(updatedUserInfo.data.status==="ok")
-    //                 {
-    //                     dispatchUserWishlist({type: "UPDATE_USER_WISHLIST",payload: updatedUserInfo.data.user.wishlist})
-    //                     dispatchUserCart({type: "UPDATE_USER_CART",payload: updatedUserInfo.data.user.cart})
-    //                     dispatchUserOrders({type: "UPDATE_USER_ORDERS",payload: updatedUserInfo.data.user.orders})
-    //                 }
-    //             })()
-    //         }
-    //     }   
-    // },[])
+        if(token)
+        {
+            const user = jwt_decode(token)
+            if(!user)
+            {
+                localStorage.removeItem('token')
+            }
+            else
+            {
+                (async function getUpdatedWishlistAndCart()
+                {
+                    let updatedUserInfo = await axios.get(
+                    "https://bookztron.herokuapp.com/api/user",
+                    {
+                        headers:
+                        {
+                        'x-access-token': localStorage.getItem('token'),
+                        }
+                    })
 
-    // const navigate = useNavigate()
+                    if(updatedUserInfo.data.status==="ok")
+                    {
+                        dispatchUserWishlist({type: "UPDATE_USER_WISHLIST",payload: updatedUserInfo.data.user.wishlist})
+                        dispatchUserCart({type: "UPDATE_USER_CART",payload: updatedUserInfo.data.user.cart})
+                        dispatchUserOrders({type: "UPDATE_USER_ORDERS",payload: updatedUserInfo.data.user.orders})
+                    }
+                })()
+            }
+        }   
+    },[])*/
 
-    // function loginUser(event)
-    // {
-    //     event.preventDefault();
-    //     axios.post(
-    //         "https://bookztron.herokuapp.com/api/login",
-    //         {
-    //             userEmail,
-    //             userPassword
-    //         }
-    //     )
-    //     .then(res => {
+    /*const navigate = useNavigate()
+
+    function loginUser(event)
+    {
+        event.preventDefault();
+        axios.post(
+            "https://bookztron.herokuapp.com/api/login",
+            {
+                userEmail,
+                userPassword
+            }
+        )
+        .then(res => {
             
-    //         if(res.data.user)
-    //         {
-    //             localStorage.setItem('token',res.data.user)
-    //             showToast("success","","Logged in successfully")
-    //             setUserLoggedIn(true)
-    //             dispatchUserWishlist({type: "UPDATE_USER_WISHLIST",payload: res.data.wishlist})
-    //             dispatchUserCart({type: "UPDATE_USER_CART",payload: res.data.cart})
-    //             dispatchUserOrders({type: "UPDATE_USER_ORDERS",payload: res.data.orders})
-    //             navigate('/shop')
-    //         }
-    //         else
-    //         {
-    //             throw new Error("Error in user login")
-    //         }
+            if(res.data.user)
+            {
+                localStorage.setItem('token',res.data.user)
+                showToast("success","","Logged in successfully")
+                setUserLoggedIn(true)
+                dispatchUserWishlist({type: "UPDATE_USER_WISHLIST",payload: res.data.wishlist})
+                dispatchUserCart({type: "UPDATE_USER_CART",payload: res.data.cart})
+                dispatchUserOrders({type: "UPDATE_USER_ORDERS",payload: res.data.orders})
+                navigate('/shop')
+            }
+            else
+            {
+                throw new Error("Error in user login")
+            }
 
-    //     })
-    //     .catch(err=>{
-    //         showToast("error","","Error logging in user. Please try again")
-    //     })
-    // }
+        })
+        .catch(err=>{
+            showToast("error","","Error logging in user. Please try again")
+        })
+    }*/
 
     return (
         <div className="user-auth-content-container">
             <form 
-            // onSubmit={loginUser}
-             className="user-auth-form">
+
+            //</div>onSubmit={loginUser} 
+            className="user-auth-form">
                 <h2>Login</h2>
                 
                 <div className="user-auth-input-container">
