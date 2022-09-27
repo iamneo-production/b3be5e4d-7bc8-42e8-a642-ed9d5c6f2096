@@ -20,7 +20,7 @@ function Navbar() {
     //     if(token)
     //     {
     //         const user = jwt_decode(token)
-            
+
     //         if(!user)
     //         {
     //             localStorage.removeItem('token')
@@ -64,7 +64,7 @@ function Navbar() {
     //     localStorage.clear()
     //     showToast("success","","Logged out successfully")
     // }
-    
+
     return (
         <div className="top-bar">
             <div className="left-topbar-container">
@@ -73,14 +73,14 @@ function Navbar() {
                     <h2 className="top-bar-brand-name">Bookztron</h2>
                 </Link>
                 {
-                    location.pathname==="/shop" && 
+                    location.pathname === "/shop" &&
                     (
                         <div className="search-bar">
-                            <input 
-                                className="search-bar-input" 
+                            <input
+                                className="search-bar-input"
                                 placeholder="Search"
-                                // value={searchBarTerm}
-                                // onChange={event=>setSearchBarTerm(event.target.value)}
+                            // value={searchBarTerm}
+                            // onChange={event=>setSearchBarTerm(event.target.value)}
                             />
                         </div>
                     )
@@ -88,17 +88,17 @@ function Navbar() {
             </div>
             <div className="right-topbar-container">
                 {
-                    localStorage.getItem('token')!==null
-                    ? (
-                        <button 
-                        // onClick={logoutUser}
-                         className="navbar-login-btn solid-primary-btn">Logout</button>
-                    )
-                    : (
-                        <Link to="/login">
-                            <button className="navbar-login-btn solid-primary-btn">Login</button>
-                        </Link>
-                    )
+                    localStorage.getItem('token') !== null
+                        ? (
+                            <button
+                                // onClick={logoutUser}
+                                className="navbar-login-btn solid-primary-btn">Logout</button>
+                        )
+                        : (
+                            <Link to="/login">
+                                <button className="navbar-login-btn solid-primary-btn">Login</button>
+                            </Link>
+                        )
                 }
                 <Link to="/shop">
                     <button className="icon-btn">
@@ -132,15 +132,15 @@ function Navbar() {
                 <Link to="/orders">
                     <button className="icon-btn">
                         <div className="icon-count-badge">
-                        {/* <BsFillBagFill 
+                            {/* <BsFillBagFill 
                             style={{
                                 marginBottom:"4px"
                             }}
                         /> */}
-                        {
-                            // userOrders.length!==0
-                            // && (<span className="count-badge-x">{userOrders.length}</span>)
-                        }
+                            {
+                                // userOrders.length!==0
+                                // && (<span className="count-badge-x">{userOrders.length}</span>)
+                            }
                         </div>
                     </button>
                 </Link>
@@ -149,4 +149,4 @@ function Navbar() {
     )
 }
 
-export {Navbar};
+export { Navbar };
