@@ -6,6 +6,7 @@ import {
   Navbar, 
   Signup,
 } from "./index"
+import { Login } from './Pages/AutheticationPages/Login';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Navbar/>
         <Routes>
           <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </div>
     </Router>

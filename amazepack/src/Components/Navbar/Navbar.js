@@ -12,7 +12,7 @@ function Navbar() {
     // const { userOrders, dispatchUserOrders } = useOrders()
     // const { setUserLoggedIn } = useUserLogin(false)
     // const { showToast } = useToast()
-    const location = useLocation()
+     const location = useLocation()
     // const { searchBarTerm, setSearchBarTerm } = useSearchBar()
 
     // useEffect(()=>{
