@@ -13,7 +13,7 @@ function Signup()
     const [newUserEmail    , setNewUserEmail]    = useState('')
     const [newUserPassword , setNewUserPassword] = useState('')
 
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
     function signupUser(event)
     {
