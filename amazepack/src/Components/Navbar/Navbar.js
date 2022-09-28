@@ -5,14 +5,15 @@ import { Link, useLocation } from "react-router-dom"
 // import { useUserLogin, useToast, useWishlist, useCart, useOrders, useSearchBar } from "../../index"
 // import { BsShopWindow, BsFillBagFill } from "react-icons/bs"
 
-function Navbar() {
+function Navbar() 
+{
 
     // const { userWishlist, dispatchUserWishlist } = useWishlist()
     // const { userCart, dispatchUserCart } = useCart()
     // const { userOrders, dispatchUserOrders } = useOrders()
     // const { setUserLoggedIn } = useUserLogin(false)
     // const { showToast } = useToast()
-
+    const location=useLocation()
     // useEffect(()=>{
     //     const token=localStorage.getItem('token')
     //     if(token)

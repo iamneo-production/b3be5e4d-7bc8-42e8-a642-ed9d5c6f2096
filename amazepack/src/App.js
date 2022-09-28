@@ -5,6 +5,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import {
   Navbar, 
   Signup,
+  Home,
+  Shop, 
+  ProductPage,
+  Wishlist,
+  Cart,
+  Orders,
 } from "./index"
 import { Login } from './Pages/AutheticationPages/Login';
 
@@ -14,8 +20,8 @@ function App() {
       <div className="App">
       <Navbar/>
         <Routes>
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
+        <Route path="/signup"  element={<Signup/>} />
+          <Route path="/login" element={<Login/>} /> 
         </Routes>
       </div>
     </Router>
