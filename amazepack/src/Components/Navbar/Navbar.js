@@ -13,9 +13,6 @@ function Navbar() {
     // const { setUserLoggedIn } = useUserLogin(false)
     // const { showToast } = useToast()
 
-     const location = useLocation()
-    // const { searchBarTerm, setSearchBarTerm } = useSearchBar()
-
     // useEffect(()=>{
     //     const token=localStorage.getItem('token')
     //     if(token)
@@ -66,13 +63,11 @@ function Navbar() {
     //     localStorage.clear()
     //     showToast("success","","Logged out successfully")
     // }
-
     return (
         <div className="top-bar">
             <div className="left-topbar-container">
                 {/* <button id="top-bar-ham-menu-btn" className="icon-btn"><i className="fa fa-bars" aria-hidden="true"></i></button> */}
                 <Link to="/">
-
                     <h2 className="top-bar-brand-name">AmazePack</h2>
                 </Link>
                 {
@@ -84,7 +79,6 @@ function Navbar() {
                                 placeholder="Search"
                                 // value={searchBarTerm}
                                 // onChange={event=>setSearchBarTerm(event.target.value)}
-
                             />
                         </div>
                     )
@@ -136,7 +130,6 @@ function Navbar() {
                 <Link to="/orders">
                     <button className="icon-btn">
                         <div className="icon-count-badge">
-
                         {/* <BsFillBagFill 
                             style={{
                                 marginBottom:"4px"
