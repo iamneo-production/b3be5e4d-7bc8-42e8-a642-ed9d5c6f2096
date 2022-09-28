@@ -1,103 +1,86 @@
 import React, { useState } from "react"
 import "./UserAuth.css"
 import { Link, useNavigate } from "react-router-dom"
-// import axios from "axios"
+import axios from "axios"
 // import { useToast } from "../../Context/toast-context"
 
-function Signup()
-{
+function Signup() {
     // const { showToast } = useToast()
 
     const [termsAndConditionsCheckbox, setTermsAndConditionsCheckbox] = useState(false)
-    const [newUserName     , setNewUserName]     = useState('')
-    const [newUserEmail    , setNewUserEmail]    = useState('')
-    const [newUserPassword , setNewUserPassword] = useState('')
+    const [newUserName, setNewUserName] = useState('')
+    const [newUserEmail, setNewUserEmail] = useState('')
+    const [newUserPassword, setNewUserPassword] = useState('')
 
     const navigate = useNavigate()
 
-    function signupUser(event)
-    {
-        // event.preventDefault();
-        // axios.post(
-        //     "https://bookztron.herokuapp.com/api/signup",
-        //     {
-        //         newUserName: `${newUserName}`,
-        //         newUserEmail: `${newUserEmail}`,
-        //         newUserPassword : `${newUserPassword}`
-        //     }
-        // )
-        // .then(res => {
-        //     if(res.data.status==='ok')
-        //     {
-        //         //User created successfully, navigate to Login Page
-        //         showToast("success","","New user created successfully")
-        //         navigate('/login')
-        //     }
-        //     else
-        //     {
-        //         throw new Error("Error occured while creating new user")
-        //     }
-        // })
-        // .catch(err=>{
-        //     showToast("error","","Error creating new user. Please try again")
-        // })
+    function signupUser(event) {
+
+        axios.post('https://8081-bfdebfbfcadddbeddbcdbabefdfccbdedef.examlyiopb.examly.io/signup', {
+            username: newUserName,
+            password: newUserPassword,
+        }).then((response) => {
+            console.log(response);
+        })
+
+        event.preventDefault();
     }
 
     return (
         <div className="user-auth-content-container">
             <form onSubmit={signupUser} className="user-auth-form">
                 <h2>Signup</h2>
-                
+
                 <div className="user-auth-input-container">
                     <label htmlFor="user-auth-input-name"><h4>Name </h4></label>
-                    <input 
-                        id="user-auth-input-name" 
-                        className="user-auth-form-input" 
-                        type="text" 
-                        placeholder="Name" 
+                    <input
+                        id="user-auth-input-name"
+                        className="user-auth-form-input"
+                        type="text"
+                        placeholder="Name"
                         value={newUserName}
-                        onChange={(event)=>setNewUserName(event.target.value)}
-                        required/>
+                        onChange={(event) => setNewUserName(event.target.value)}
+                        required />
                 </div>
-                
+
                 <div className="user-auth-input-container">
                     <label htmlFor="user-auth-input-email"><h4>Email address</h4></label>
-                    <input 
-                        id="user-auth-input-email" 
-                        className="user-auth-form-input" 
-                        type="email" 
-                        placeholder="Email" 
+                    <input
+                        id="user-auth-input-email"
+                        className="user-auth-form-input"
+                        type="email"
+                        placeholder="Email"
                         value={newUserEmail}
-                        onChange={(event)=>setNewUserEmail(event.target.value)}
-                        required/>
+                        onChange={(event) => setNewUserEmail(event.target.value)}
+                        required />
                 </div>
 
                 <div className="user-auth-input-container">
                     <label htmlFor="user-auth-input-password"><h4>Password</h4></label>
-                    <input 
-                        id="user-auth-input-password" 
-                        className="user-auth-form-input" 
-                        type="password" 
-                        placeholder="Password" 
+                    <input
+                        id="user-auth-input-password"
+                        className="user-auth-form-input"
+                        type="password"
+                        placeholder="Password"
                         value={newUserPassword}
-                        onChange={(event)=>setNewUserPassword(event.target.value)}
-                        required/>
+                        onChange={(event) => setNewUserPassword(event.target.value)}
+                        required />
                 </div>
 
                 <div className="accept-terms-container">
-                    <input 
-                        type="checkbox" 
-                        id="accept-terms" 
+                    <input
+                        type="checkbox"
+                        id="accept-terms"
                         checked={termsAndConditionsCheckbox}
-                        onChange={()=>setTermsAndConditionsCheckbox(prevState=>!prevState)}
+                        onChange={() => setTermsAndConditionsCheckbox(prevState => !prevState)}
                     />
                     <label htmlFor="accept-terms">I accept all terms and conditions</label>
                 </div>
 
-                <button 
-                    type="submit" 
-                    className="solid-success-btn form-user-auth-submit-btn" 
-                    disabled={termsAndConditionsCheckbox?"":true}
+                <button
+                    type="submit"
+                    className="solid-success-btn form-user-auth-submit-btn"
+                    disabled={termsAndConditionsCheckbox ? "" : true}
                 >
                     Create New Account
                 </button>

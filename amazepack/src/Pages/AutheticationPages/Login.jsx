@@ -58,46 +58,51 @@ function Login()
         }   
     },[])*/
 
-    /*const navigate = useNavigate()
+    const navigate = useNavigate()
 
     function loginUser(event)
     {
-        event.preventDefault();
-        axios.post(
-            "https://bookztron.herokuapp.com/api/login",
-            {
-                userEmail,
-                userPassword
-            }
-        )
-        .then(res => {
+        axios.post('https://8081-bfdebfbfcadddbeddbcdbabefdfccbdedef.examlyiopb.examly.io/login', {
+            username: userEmail,
+            password: userPassword,
+        }).then((response) => {
+            console.log(response);
+        })
+        // event.preventDefault();
+        // axios.post(
+        //     "https://bookztron.herokuapp.com/api/login",
+        //     {
+        //         userEmail,
+        //         userPassword
+        //     }
+        // )
+        // .then(res => {
             
-            if(res.data.user)
-            {
-                localStorage.setItem('token',res.data.user)
-                showToast("success","","Logged in successfully")
-                setUserLoggedIn(true)
-                dispatchUserWishlist({type: "UPDATE_USER_WISHLIST",payload: res.data.wishlist})
-                dispatchUserCart({type: "UPDATE_USER_CART",payload: res.data.cart})
-                dispatchUserOrders({type: "UPDATE_USER_ORDERS",payload: res.data.orders})
-                navigate('/shop')
-            }
-            else
-            {
-                throw new Error("Error in user login")
-            }
+        //     if(res.data.user)
+        //     {
+        //         localStorage.setItem('token',res.data.user)
+        //         showToast("success","","Logged in successfully")
+        //         setUserLoggedIn(true)
+        //         dispatchUserWishlist({type: "UPDATE_USER_WISHLIST",payload: res.data.wishlist})
+        //         dispatchUserCart({type: "UPDATE_USER_CART",payload: res.data.cart})
+        //         dispatchUserOrders({type: "UPDATE_USER_ORDERS",payload: res.data.orders})
+        //         navigate('/shop')
+        //     }
+        //     else
+        //     {
+        //         throw new Error("Error in user login")
+        //     }
 
-        })
-        .catch(err=>{
-            showToast("error","","Error logging in user. Please try again")
-        })
-    }*/
+        // })
+        // .catch(err=>{
+        //     showToast("error","","Error logging in user. Please try again")
+        // })
+    }
 
     return (
         <div className="user-auth-content-container">
             <form 
-
-            //</div>onSubmit={loginUser} 
+            onSubmit={loginUser} 
             className="user-auth-form">
                 <h2>Login</h2>
                 
