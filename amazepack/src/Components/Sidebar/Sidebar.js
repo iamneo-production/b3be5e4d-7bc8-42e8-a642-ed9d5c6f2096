@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import './Sidebar.css'
 import { useProductAvailable } from "../../Context/product-context"
-import { useGenre } from "../../Context/genre-context";
+import { useGenre } from "../../Context/orders-context";
 
 function Sidebar() {
   const {
