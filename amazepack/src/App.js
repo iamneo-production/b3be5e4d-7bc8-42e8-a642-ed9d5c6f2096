@@ -3,6 +3,7 @@ import { useEffect, useLayoutEffect } from 'react';
 // import axios from "axios"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import {
+  Cart,
   Navbar, 
   Signup,
 } from "./index"
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+
         </Routes>
       </div>
     </Router>
