@@ -16,7 +16,7 @@ function Signup() {
 
     function signupUser(event) {
 
-        axios.post('https://8081-bfdebfbfcadddbeddbcdbabefdfccbdedef.examlyiopb.examly.io/signup', {
+        axios.post('http://localhost:8081/signup', {
             username: newUserName,
             password: newUserPassword,
         }).then((response) => {

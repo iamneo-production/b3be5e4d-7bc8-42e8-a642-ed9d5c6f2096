@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require("cors");
+const mysql = require("mysql");
 const app = express();
 const port = 8080;
 app.use(express.json());
@@ -12,14 +13,14 @@ const db = mysql.createConnection({
     database: "ecom"
 });
 
-db.connect(function(err) {
-    if (err) throw err;
-    var sql = "CREATE TABLE users (email VARCHAR(255), password VARCHAR(255),username VARCHAR(255),number VARCHAR(255),active BOOL,role VARCHAR(255))";
-    con.query(sql, function (err, result) {
-      if (err) throw "hello"+ err;
-      console.log("Table created");
-    });
-  });
+// db.connect(function(err) {
+//     if (err) throw err;
+//     var sql = "CREATE TABLE users (email VARCHAR(255), password VARCHAR(255),username VARCHAR(255),number VARCHAR(255),active BOOL,role VARCHAR(255))";
+//     con.query(sql, function (err, result) {
+//       if (err) throw "hello"+ err;
+//       console.log("Table created");
+//     });
+//   });
 
 app.post("/signup", (req, res) => {
 
@@ -60,5 +61,18 @@ app.post('/login', (req, res) => {
 
 app.listen(port, () => console.log(`listening on port ${port}`))
 app.get("/", (req, res) => {
-    res.send("hi");
-})
+    
+    let tableName = 'gfg_table';
+    
+    // Query to create table
+    let query = `CREATE TABLE ${tableName} (
+      name VARCHAR(255), address VARCHAR(255))`;
+    
+    database.query(query, (err, rows) => {
+        if(err) return res.status(500)
+            .send("Table Creation Failed");
+    
+        return res.send(
+  `Successfully Created Table - ${tableName}`);
+    })
+  });
