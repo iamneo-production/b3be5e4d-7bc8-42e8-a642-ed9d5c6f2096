@@ -7,7 +7,7 @@ body
 {
     width: 100%;
     min-height: calc(100vh - 107.23px);
-    /* background: black; */
+    /* background: url('../../Assets/Images/Library_pic1.jpg'); */
     background-repeat: no-repeat; 
     background-size: cover;
     background-position: center center;

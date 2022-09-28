@@ -1,49 +1,75 @@
-import { useCallback, useEffect } from 'react'
-import './Toast.css'
-import { useToast } from "../../Context/toast-context"
-
-function Toast({ position })
+.toasts-container
 {
-    const { toastList, setToastList } = useToast()
-    
-    const deleteToast = useCallback(toastId =>
-    {
-        const newToastListItem = toastList.filter(toast => toast.id!==toastId)
-        setToastList(prevToastList => newToastListItem)
-    },[toastList,setToastList])
-
-    useEffect(()=>{
-        const interval = setInterval(()=>{
-            if(toastList.length)
-            {
-                deleteToast(toastList[0].id)
-            }
-        },3000);
-
-        return ()=> {
-            clearInterval(interval)
-        }
-        
-    },[toastList, deleteToast])
-
-    return(
-        <div className={`toasts-container ${position}`}>
-            {
-                toastList.map((toast, index) => (
-                    <div key={index}
-                         className={`notification toast`}
-                         style={{backgroundColor : toast.backgroundColor}}
-                    >
-                        <div className="toast-content-container">
-                            <h3 className='toast-title'>{toast.title}</h3>
-                            <p className='toast-description'>{toast.description}</p>
-                        </div>
-                        <button onClick={()=>deleteToast(toast.id)} className="toast-close-btn">X</button>
-                    </div>
-                ))
-            }
-        </div>
-    )
+    font-size: 14px;
+    position: sticky;
+    bottom: 5px;
+    right: 5px;
+    z-index : 10;
+    overflow: hidden;
 }
 
-export { Toast };
+.bottom-right
+{
+    position: fixed;
+    bottom : 1rem;
+    right : 1rem;
+    animation: toast-from-right 0.7s;
+}
+
+.notification
+{
+    margin-bottom : 1rem;
+    border-radius : 4px;
+    box-shadow : 0 0 10px #999;
+    color : #000;
+    transition: 0.3s ease;
+}
+
+.notification:hover
+{
+    box-shadow: 0 0 12px #fff;
+
+}
+
+.toast
+{
+    width : 365px;
+    color : #fff;
+    padding : 15px 15px 15px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    animation: toast-from-right 0.7s;
+}
+
+.toast-content-container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.toast-title, .toast-description
+{
+    margin: 0;
+}
+
+.toast-close-btn
+{
+    height: fit-content;
+    padding: 6.5px 10px;
+    border-radius: 50%;
+    border: none;
+}
+
+/* Toast should come from right */
+@keyframes toast-from-right
+{
+    from {
+        transform: translateX(100%)
+    }
+    to {
+        transform: translateX(0%)
+    }
+}
