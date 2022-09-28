@@ -5,8 +5,10 @@ import jwt_decode from "jwt-decode";
 import { useUserLogin, useToast, useWishlist, useCart, useOrders, useSearchBar } from "../../index"
 import { BsShopWindow, BsFillBagFill } from "react-icons/bs"
 
-function Navbar() {
+function Navbar() 
+{
 
+<<<<<<< HEAD
     const { userWishlist, dispatchUserWishlist } = useWishlist()
     const { userCart, dispatchUserCart } = useCart()
     const { userOrders, dispatchUserOrders } = useOrders()
@@ -14,6 +16,19 @@ function Navbar() {
     const { showToast } = useToast()
     const location = useLocation()
     const { searchBarTerm, setSearchBarTerm } = useSearchBar()
+=======
+    // const { userWishlist, dispatchUserWishlist } = useWishlist()
+    // const { userCart, dispatchUserCart } = useCart()
+    // const { userOrders, dispatchUserOrders } = useOrders()
+    // const { setUserLoggedIn } = useUserLogin(false)
+    // const { showToast } = useToast()
+    const location=useLocation()
+    // useEffect(()=>{
+    //     const token=localStorage.getItem('token')
+    //     if(token)
+    //     {
+    //         const user = jwt_decode(token)
+>>>>>>> 9fa9207571c78a811b785f6d74d50e193b1b8ff2
 
     useEffect(()=>{
         const token=localStorage.getItem('token')

@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useCart, useToast, useOrders } from "../../index"
 import axios from "axios"
-import { loadRazorpayScript } from "../../UtilityFunctions/loadRazorpayScript"
+import { loadRazorpayScript } from "/home/coder/project/workspace/amazepack/src/utility functions/loadRazorpaySciprt.js"
 
 function ShoppingBill()
 {

@@ -3,13 +3,13 @@ import jwt_decode from "jwt-decode"
 import { useLocation } from "react-router-dom"
 import "./Shop.css"
 import { 
-  Sidebar, 
+ // Sidebar, 
   ProductCard,
   useWishlist,
   useCart,
   useSearchBar,
   Pagination
-} from "../../index.js"
+} from "/home/coder/project/workspace/amazepack/src/index.js"
 import { useProductAvailable } from "../../Context/product-context"
 import axios from 'axios'
 
@@ -24,7 +24,7 @@ function Shop(props) {
     const { dispatchUserWishlist } = useWishlist()
     const { dispatchUserCart } = useCart()
     const { pathname } = useLocation();
-    const { searchBarTerm } = useSearchBar()
+   const { searchBarTerm } = useSearchBar()
     const [ currentPage, setCurrentPage ] = useState(1)
     const [ productsPerPage, setProductsPerPage ] = useState(12)
   
@@ -114,7 +114,6 @@ function Shop(props) {
     return (
         <div>
             <div className='shop-container'>
-                <Sidebar/>
                 <div className='products-container'>
                     <h2>Showing {searchBarTerm === ""?productsAvailableList.length:searchedProducts.length} products</h2>
                     <div className="products-card-grid">
